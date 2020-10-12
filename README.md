@@ -9,6 +9,7 @@ This is the official repository for our NeurIPS 2020 paper [Meta-Neighborhoods](
   year={2019}
 }
 ```
+![Alt Text](spiral.gif)
 
 ## Prerequisites
 clone our repository and install TensorFlow 1.12.0
