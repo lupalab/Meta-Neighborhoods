@@ -20,22 +20,26 @@ python prepare_cifar100.py --save_dir=path_to_save_data
 ```
 
 ## Experiments
-
+Set --visualize=True if you want to visualize dictionary values and attention similarity as images in TensorBoard. 
 ### MN+iFilm model
 ```
 (Train) python main.py --logdir=path_to_save_log --data_dir=path_to_save_data --dataset=cifar100 --meta_batch_size=128 --dropout_ratio=0.5 --vanilla=False --dict_size=10000 --update_lr=0.1 --num_updates=1 --fix_v=False --alpha=5.0 --meta_lr=1e-3 --backbone=resnet56 --scalar_lr=True --dot=False --modulate=all --film_dict_size=10 --visualize=False
+
+(Test) python main.py --logdir=path_to_save_log --data_dir=path_to_save_data --dataset=cifar100 --meta_batch_size=128 --dropout_ratio=0.5 --vanilla=False --dict_size=10000 --update_lr=0.1 --num_updates=1 --fix_v=False --alpha=5.0 --meta_lr=1e-3 --backbone=resnet56 --scalar_lr=True --dot=False --modulate=all --film_dict_size=10 --train=False --test_set=True
 ```
-python main.py --logdir=path_to_save_log --data_dir=path_to_save_data --dataset=cifar100 --meta_batch_size=128 --finetune=False --dropout_ratio=0.5 --vanilla=False --update_batch_size=5000 --update_lr=0.1 --num_updates=1 --fix_v=False --alpha=5.0 --meta_lr=1e-3 --backbone=resnet56 --scalar_lr=True --dot=False --modulate=all --film_dict_size=10
+
+### MN model
 ```
-- for `synthetic` dataset
+(Train) python main.py --logdir=path_to_save_log --data_dir=path_to_save_data --dataset=cifar100 --meta_batch_size=128 --dropout_ratio=0.5 --vanilla=False --dict_size=10000 --update_lr=0.1 --num_updates=1 --fix_v=False --alpha=5.0 --meta_lr=1e-3 --backbone=resnet56 --scalar_lr=True --dot=False --modulate=None --visualize=False
+
+(Test) python main.py --logdir=path_to_save_log --data_dir=path_to_save_data --dataset=cifar100 --meta_batch_size=128 --dropout_ratio=0.5 --vanilla=False --dict_size=10000 --update_lr=0.1 --num_updates=1 --fix_v=False --alpha=5.0 --meta_lr=1e-3 --backbone=resnet56 --scalar_lr=True --dot=False --modulate=None --train=False --test_set=True
 ```
-(Train) python scripts/train.py --cfg_file=./exp/syn/params.json
-(ACFlow DFA) python scripts/test_cls_dfa.py --cfg_file=./exp/syn/params.json
-(ACFlow SFA) python scripts/test_cls_sfa.py --cfg_file=./exp/syn/params.json
+
+### vanilla model
 ```
-- for `gas` dataset
+(Train) python main.py --logdir=path_to_save_log --data_dir=path_to_save_data --dataset=cifar100 --meta_batch_size=128 --vanilla=True --meta_lr=1e-3 --backbone=resnet56 --dot=False --modulate=None --visualize=False
+
+(Test) python main.py --logdir=path_to_save_log --data_dir=path_to_save_data --dataset=cifar100 --meta_batch_size=128 --vanilla=True --meta_lr=1e-3 --backbone=resnet56 --dot=False --modulate=None --train=False --test_set=True
 ```
-(Train) python scripts/train.py --cfg_file=./exp/gas/params.json
-(ACFlow DFA) python scripts/test_cls_dfa.py --cfg_file=./exp/gas/params.json
-(ACFlow SFA) python scripts/test_cls_sfa.py --cfg_file=./exp/gas/params.json
-```
+### Spiral Toy Example
+Please refer to https://github.com/lupalab/MetaNeighborhood-Spiral
