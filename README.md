@@ -14,16 +14,18 @@ This is the official repository for our NeurIPS 2020 paper [Meta-Neighborhoods](
 clone our repository and install TensorFlow 1.12.0
 
 ## Prepare datasets
-the script below help to prepare CIFAR100 and save it to , based on which you can prepare your own datasets.
+the script below help to prepare CIFAR100 and save it to , based on which you can prepare other datasets.
 ```
 python prepare_cifar100.py --save_dir=path_to_save_data
 ```
 
 ## Experiments
 
-### run a vanilla model
+### MN+iFilm model
 ```
-python main.py --logdir=path_to_save_log --data_dir=/playpen1/scribble/ssy --dataset=tiny --meta_batch_size=128 --finetune=False --dropout_ratio=0.5 --vanilla=False --update_batch_size=5000 --update_lr=0.1 --num_updates=1 --fix_v=False --alpha=5.0 --meta_lr=1e-3 --backbone=resnet56 --scalar_lr=True --dot=False --modulate=all --film_dict_size=10
+(Train) python main.py --logdir=path_to_save_log --data_dir=path_to_save_data --dataset=cifar100 --meta_batch_size=128 --dropout_ratio=0.5 --vanilla=False --dict_size=10000 --update_lr=0.1 --num_updates=1 --fix_v=False --alpha=5.0 --meta_lr=1e-3 --backbone=resnet56 --scalar_lr=True --dot=False --modulate=all --film_dict_size=10 --visualize=False
+```
+python main.py --logdir=path_to_save_log --data_dir=path_to_save_data --dataset=cifar100 --meta_batch_size=128 --finetune=False --dropout_ratio=0.5 --vanilla=False --update_batch_size=5000 --update_lr=0.1 --num_updates=1 --fix_v=False --alpha=5.0 --meta_lr=1e-3 --backbone=resnet56 --scalar_lr=True --dot=False --modulate=all --film_dict_size=10
 ```
 - for `synthetic` dataset
 ```
