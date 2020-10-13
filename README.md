@@ -15,7 +15,7 @@ This is the official repository for our NeurIPS 2020 paper [Meta-Neighborhoods](
 clone our repository and install TensorFlow 1.12.0
 
 ## Prepare datasets
-the script below help to prepare CIFAR100 and save it to , based on which you can prepare other datasets.
+the script below help to prepare CIFAR100 and save it to path_to_save_data, based on which you can prepare other datasets.
 ```
 python prepare_cifar100.py --save_dir=path_to_save_data
 ```
