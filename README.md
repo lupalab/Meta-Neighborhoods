@@ -1,6 +1,6 @@
 # Meta-Neighborhoods
 
-This is the official repository for our NeurIPS 2020 paper [Meta-Neighborhoods](https://arxiv.org/abs/1909.09140).
+This is the official repository for our NeurIPS 2020 paper [Meta-Neighborhoods](https://arxiv.org/abs/1909.09140). A short introduction to this paper can be found in this [talk](https://slideslive.com/38936025/metaneighborhoods).
 ```
 @article{shan2019meta,
   title={Meta-Neighborhoods},
